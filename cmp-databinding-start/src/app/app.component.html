@@ -2,4 +2,9 @@
   <app-cockpit-component></app-cockpit-component>
   <hr />
   <div class="row"></div>
+  <app-server-component
+    *ngFor="let server of serverElements"
+    [name]="server.name"
+    [srvelement]="server"
+  ></app-server-component>
 </div>
