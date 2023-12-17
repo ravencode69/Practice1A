@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-component',
@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 export class ServerComponentComponent {
 @Input('srvelement') element:{type:string; name:string; content:string};
 @Input() name:string;
+@ViewChild('heading') header:ElementRef;
+@ContentChild('contentData') contentThere:ElementRef;
 constructor()
 {
 }

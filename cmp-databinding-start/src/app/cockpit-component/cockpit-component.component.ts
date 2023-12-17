@@ -17,4 +17,5 @@ export class CockpitComponentComponent {
   onAddBlueprint() {
    this.blueprintCreated.emit({bname:this.newServerName,bcontent:this.newServerContent});
   }
+  
 }
