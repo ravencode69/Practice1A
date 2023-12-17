@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit-component',
@@ -8,20 +8,13 @@ import { Component } from '@angular/core';
 export class CockpitComponentComponent {
   newServerName = '';
   newServerContent = '';
-
+@Output() serverCreated=new EventEmitter<{sname:string; scontent:string}>();
+@Output() blueprintCreated=new EventEmitter<{bname:string;bcontent:string}>();
   onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+   this.serverCreated.emit({sname:this.newServerName, scontent:this.newServerContent});
   }
 
   onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+   this.blueprintCreated.emit({bname:this.newServerName,bcontent:this.newServerContent});
   }
 }
