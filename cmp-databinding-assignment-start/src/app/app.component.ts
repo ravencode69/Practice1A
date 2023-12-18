@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  catchNum=[];
+
+  catcher(num:number)
+  {
+    this.catchNum.push(num);
+    console.log("we caught");
+    console.log(this.catchNum);
+  }
+ 
 }
