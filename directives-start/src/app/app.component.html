@@ -18,11 +18,14 @@
             {{ number }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+
+        <!-- Use ng-container to apply *appIfnot on the li element -->
+        <ng-container *appIfnot="onlyOdd">
           <li class="list-group-item" *ngFor="let even of evenNumbers">
             {{ even }}
           </li>
-        </div>
+        </ng-container>
+
         <p basichighlight>color me golden with basichighlight</p>
         <p appBetterhighlight [defaultColor]="'red'" [newColor]="'grey'">
           color me with betterhighlight
