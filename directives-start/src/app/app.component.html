@@ -30,6 +30,10 @@
         <p appBetterhighlight [defaultColor]="'red'" [newColor]="'grey'">
           color me with betterhighlight
         </p>
+        <div [ngSwitch]="value">
+          <p *ngSwitchCase="100">value set to 100</p>
+          <p *ngSwitchCase="10">value set to 10</p>
+        </div>
       </ul>
     </div>
   </div>
