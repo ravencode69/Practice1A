@@ -1,31 +1,23 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { AccountDataService } from './accounts.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AccountDataService],
 })
-export class AppComponent {
-  accounts = [
-    {
-      name: 'Master Account',
-      status: 'active'
-    },
-    {
-      name: 'Testaccount',
-      status: 'inactive'
-    },
-    {
-      name: 'Hidden Account',
-      status: 'unknown'
-    }
-  ];
+export class AppComponent implements OnInit {
+  accounts: { name: string; status: string }[] = [];
+  constructor(private accservice: AccountDataService) {}
+  // onAccountAdded(newAccount: { name: string; status: string }) {
+  //   this.accservice.addAccount(newAccount);
+  // }
 
-  onAccountAdded(newAccount: {name: string, status: string}) {
-    this.accounts.push(newAccount);
-  }
-
-  onStatusChanged(updateInfo: {id: number, newStatus: string}) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
+  // onStatusChanged(updateInfo: { id: number; newStatus: string }) {
+  //   this.accservice.updateStatus(updateInfo.id,updateInfo.newStatus);
+  // }
+  ngOnInit(): void {
+    this.accounts = this.accservice.accounts;
+    console.log(this.accounts);
   }
 }
